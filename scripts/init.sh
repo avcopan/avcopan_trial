@@ -9,7 +9,7 @@ else
 fi
 
 # Initialize git repository
-git init
+git init -b main
 git add --all
 if git config --get user.name >/dev/null 2>&1 && git config --get user.email >/dev/null 2>&1; then
   git commit -m "Initial commit"
@@ -28,11 +28,25 @@ lefthook install
 # Install all pixi environments
 pixi install --all
 
-USER=$(git config --global user.name)
+# Offer to set Pixi's pinning strategy, so that `pixi add` adds lower bounds only
+if ! pixi config list pinning-strategy --json | grep -q '"latest-up"'; then
+  PIN_CMD="pixi config set pinning-strategy latest-up --global"
+  if [[ -t 0 ]]; then
+    read -r -p "Set Pixi's pinning strategy to \"latest-up\" for all your projects? [Y/n] " answer
+  else
+    answer=n
+  fi
+  if [[ "${answer:-y}" =~ ^[Yy] ]]; then
+    $PIN_CMD
+  else
+    echo "To set Pixi's pinning strategy later, run: $PIN_CMD"
+  fi
+  echo
+fi
+
 REPO=$(basename "$PWD")
 echo "Setup complete."
 echo
 echo "Now, run the following commands to set up your remote repository:"
-echo "  git remote add origin git@github.com:$USER/$REPO.git"
+echo "  git remote add origin git@github.com:avcopan/$REPO.git"
 echo "  git push -u origin main"
-echo "(Double-check the URL to make sure the user/org and repo names are what you want.)"

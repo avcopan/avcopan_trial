@@ -6,20 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Updated
+
+- Updated against copier template
+
 ## [0.0.1] - 2026-10-19
 
 ### Added
 
 - Initial trial release
-
-## [0.0.0] - YYYY-MM-DD
-
-### Fixed
-
-- Fix 1
-- Fix 2...
-
-### Changed
-
-- Change 1
-- Change 2...

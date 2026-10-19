@@ -1,6 +1,6 @@
 [project]
 name = "avcopan_trial"
-version = "0.0.0"
+version = "0.0.1"
 authors = [{name = "Andreas V. Copan", email = "avcopan@uga.edu"}]
 dependencies = []
 requires-python = ">= 3.13"

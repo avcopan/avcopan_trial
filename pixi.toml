@@ -39,17 +39,28 @@ ca-certificates = ">=2026.10.18"
 tzdata = ">=2026c"
 
 [feature.dev.dependencies]
+# Dependency management
 uv = "*"
+# Formatting, linting, and pre-commit hooks
 ruff = "*"
 ty = "*"
 import-linter = "*"
 lefthook = "*"
 actionlint = "*"
+# Releases
 tbump = "*"
+# Template updates
+copier = "*"
+# Notebooks
 ipykernel = "*"
+# Documentation (see great-docs.yml)
+quarto = ">=1.9.38"
 
 [feature.dev.pypi-dependencies]
+# Releases
 keepachangelog = "*"
+# Documentation
+great-docs = ">=0.17.0"
 
 [environments]
 default = { solve-group = "default" }
@@ -80,6 +91,9 @@ workflows = "actionlint"  # lint the GitHub Actions workflows
 pre-commit = "lefthook run pre-commit --all-files"
 pre-commit-check = "lefthook run pre-commit --all-files --tag check"  # skips the tests
 pre-commit-local = "lefthook run pre-commit-local --all-files"
+# Build and preview documentation (see great-docs.yml)
+docs-build = "great-docs build"
+docs-preview = { cmd = "great-docs preview", depends-on = ["docs-build"] }
 # Build and publish conda package
 build-conda = "pixi publish --target-dir dist"
 publish-conda = "pixi upload prefix --channel avcopan/automech dist/*.conda"
@@ -91,6 +105,8 @@ publish-test-pypi = "uv publish --publish-url https://test.pypi.org/legacy/"
 version = "tbump current-version"
 changelog = { cmd = "keepachangelog release {{ version }}", args=["version"] }
 release = "tbump"
+# Update against template changes (see scripts/copier-update.sh)
+copier-update = "./scripts/copier-update.sh"
 # Toggle Git hooks on/off
 hooks = "./scripts/hooks.sh"
 # Setup and initialize this repository (only run once)

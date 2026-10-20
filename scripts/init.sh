@@ -8,6 +8,9 @@ else
   echo "You can install direnv and then run: direnv allow"
 fi
 
+# Create the default documentation configuration, great-docs.yml (skipped if it exists)
+pixi run -e dev great-docs init
+
 # Initialize git repository
 git init -b main
 git add --all
@@ -40,6 +43,22 @@ if ! pixi config list pinning-strategy --json | grep -q '"latest-up"'; then
     $PIN_CMD
   else
     echo "To set Pixi's pinning strategy later, run: $PIN_CMD"
+  fi
+  echo
+fi
+
+# Offer to use vimdiff as Git's merge tool, e.g. for conflicts from `pixi run copier-update`
+if [[ -z "$(git config --global merge.tool || true)" ]]; then
+  MERGE_CMD="git config --global merge.tool vimdiff"
+  if [[ -t 0 ]]; then
+    read -r -p "Set Git's merge tool to vimdiff for all your projects? [Y/n] " answer
+  else
+    answer=n
+  fi
+  if [[ "${answer:-y}" =~ ^[Yy] ]]; then
+    $MERGE_CMD
+  else
+    echo "To set Git's merge tool later, run: $MERGE_CMD"
   fi
   echo
 fi

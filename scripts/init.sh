@@ -65,3 +65,6 @@ echo
 echo "Now, run the following commands to set up your remote repository:"
 echo "  git remote add origin git@github.com:avcopan/avcopan_trial.git"
 echo "  git push -u origin main"
+echo
+echo "Then, link your documentation site under 'About' on your GitHub repository site"
+echo "(see https://github.com/avcopan/copier-pixi-python#initialize-local-repository)."

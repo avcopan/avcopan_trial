@@ -81,11 +81,7 @@ dynamic: true
 # : false - disable the PyPI link
 # : type(str) - a custom package index URL
 # pypi: https://artifactory.example.com/pkg
-<<<<<<< before updating
-# pypi: null
-=======
 pypi: false
->>>>>>> after updating
 
 # GitHub Integration
 # ------------------
@@ -363,15 +359,6 @@ authors:
 #     contents:
 #       - helper_func
 #       - another_func
-<<<<<<< before updating
-reference:
-  - title: Functions
-    desc: Utility functions
-    contents:
-      - greet
-      - greet_jim
-=======
->>>>>>> after updating
 
 # Inline Methods
 # --------------

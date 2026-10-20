@@ -1,6 +1,10 @@
 # Great Docs Configuration
 # See https://posit-dev.github.io/great-docs/user-guide/configuration.html
 #
+# This file comes from the copier template. It is the default configuration written
+# by `great-docs init` (v0.17.0), with the template's presets set as live keys. The
+# GitHub repository and documentation links come from [project.urls] in pyproject.toml.
+#
 # Every option appears below at its default value, with the values it accepts
 # documented above it. Set only what you want to change: an option you leave
 # out or commented out keeps its default.
@@ -77,7 +81,11 @@ dynamic: true
 # : false - disable the PyPI link
 # : type(str) - a custom package index URL
 # pypi: https://artifactory.example.com/pkg
+<<<<<<< before updating
 # pypi: null
+=======
+pypi: false
+>>>>>>> after updating
 
 # GitHub Integration
 # ------------------
@@ -355,12 +363,15 @@ authors:
 #     contents:
 #       - helper_func
 #       - another_func
+<<<<<<< before updating
 reference:
   - title: Functions
     desc: Utility functions
     contents:
       - greet
       - greet_jim
+=======
+>>>>>>> after updating
 
 # Inline Methods
 # --------------

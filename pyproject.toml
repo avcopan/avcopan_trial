@@ -5,6 +5,10 @@ authors = [{name = "Andreas V. Copan", email = "avcopan@uga.edu"}]
 dependencies = []
 requires-python = ">= 3.13"
 
+[project.urls]
+Repository = "https://github.com/avcopan/avcopan_trial"
+Documentation = "https://avcopan.github.io/avcopan_trial/"
+
 [build-system]
 build-backend = "uv_build"
 requires = ["uv_build"]

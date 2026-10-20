@@ -8,9 +8,6 @@ else
   echo "You can install direnv and then run: direnv allow"
 fi
 
-# Create the default documentation configuration, great-docs.yml (skipped if it exists)
-pixi run -e dev great-docs init
-
 # Initialize git repository
 git init -b main
 git add --all
@@ -63,9 +60,8 @@ if [[ -z "$(git config --global merge.tool || true)" ]]; then
   echo
 fi
 
-REPO=$(basename "$PWD")
 echo "Setup complete."
 echo
 echo "Now, run the following commands to set up your remote repository:"
-echo "  git remote add origin git@github.com:avcopan/$REPO.git"
+echo "  git remote add origin git@github.com:avcopan/avcopan_trial.git"
 echo "  git push -u origin main"
